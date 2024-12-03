@@ -146,9 +146,125 @@
   </div>
 </section>
 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
 
+     <img src="./assets/intro.png" class="center">
+     
+     <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+      TGAvatar reconstructs a 3D facial avatar from a monocular portrait video of a person. By leveraging 3D Gaussian Splatting \cite{kerbl20233d}, alongside 3DMM feature blending and a transformer based tri-plane module, TGAvatar gan generate lifelike novel views and expressions of the digital avatar.  
+      </h2>
+    </div>
 
+  </div>
+</section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths"> 
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce TGAvatar, a novel framework for 3D head animation and reconstruction that revolutionizes the use of 3D Gaussian Splatting (3DGS). TGAvatar significantly advances rendering quality by leveraging the intricate properties of 3DGS to achieve detailed and realistic representations of human head geometries and textures. We use an innovative application of linear blending techniques to imitate 3D Morphable Model (3DMM) coefficients within 3DGS, thereby enabling precise and dynamic facial feature and expression modeling. Further enhancing TGAvatar's capabilities, a transformer based tri-plane module is incorporated to accurately infer spherical harmonics and alpha parameters. This integration is pivotal for the method, as it allows allows us to efficiently and precisely represent the visual characteristics of gaussians, tailored specifically to the intricate details of the head's components. Our exhaustive evaluations show that TGAvatar not only elevates the fidelity and realism of 3D head reconstructions but also sets a new standard by surpassing existing methods in rendering quality and computational efficiency.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Pipeline -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Pipeline</h2>
+        <img src="./assets/process.png" class="center">
+        <div class="content has-text-justified">
+          <p style="margin-top: 30px">
+            TGAvatar process begins with the random initialization of a set of Gaussians with pose, rotation, and scale bases (\(P, Q, S\)) and bias terms (\(p_0, q_0, s_0\)). In addition, a transformer based tri-plane module is employed to ensure high-fidelity novel view synthesis. Specifically, we first use a transformer-based tri-plane decoder to predict tri-plane features. Subsequently, we incorporate a tri-plane module to extract hybrid features based on the pose of each Gaussian. Finally, these hybrid features are fed into an MLP network to infer opacity (\(\alpha\)) and spherical harmonics coefficients(SH) in each gaussian.
+          </p>
+        </div>
+
+        <!-- <p> <FONT COLOR="#ff0000">TODO </FONT> </p> -->
+
+        
+        <div class="content has-text-centered">
+          
+          <video id="replay-video" controls="" preload="" playsinline="" loop="" width="100%">
+            <source src="./assets/demo_final.mp4" type="video/mp4">
+          </video>
+        </div>
+        
+
+      </div>
+    </div>
+    <!--/ Pipeline -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Comparisons</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Qualitative comparisons between our TGAvatar and INSTA, FlashAvatar and GaussianBlendshapes. Results are executed under the configurations specified in their works. For INSTA dataset, INSTA and GaussianBlendshapes provide pretrained models, therefore, these results are evaluated by their pretrained models. Our TGAvatar achieves better results, particularly in capturing details such as teeth, eyes, wrinkles and reflections.
+          </p>
+        </div>
+
+        
+        <div class="content has-text-centered">
+          <video id="replay-video" controls="" muted="" preload="" playsinline="" loop="" width="100%">
+            <source src="./assets/compare.mp4" type="video/mp4">
+          </video>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">More Results</h2>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item id1">
+          <video poster="" id="id1" autoplay controls muted loop playsinline height="100%">
+            <source src="./assets/id1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item id2">
+          <video poster="" id="id2" autoplay controls muted loop playsinline height="100%">
+            <source src="./assets/id2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item id5">
+          <video poster="" id="id5" autoplay controls muted loop playsinline height="100%">
+            <source src="./assets/id5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item id6">
+          <video poster="" id="id6" autoplay controls muted loop playsinline height="100%">
+            <source src="./assets/id6.mp4"  type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
